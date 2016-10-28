@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ueS-XA-QpO">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Albums Table View Controller-->
+        <scene sceneID="h87-gs-7yu">
+            <objects>
+                <tableViewController id="qK1-wF-cj4" customClass="AlbumsTableViewController" customModule="SpotifySearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="L8k-Mx-Aum">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AlbumCellID" rowHeight="90" id="lwe-YN-QQY" customClass="AlbumTableViewCell" customModule="SpotifySearch" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="375" height="90"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lwe-YN-QQY" id="aXj-w1-4kL">
+                                    <frame key="frameInset" width="375" height="89"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LPX-ow-9jx">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="64" id="7tG-dG-tP0"/>
+                                                <constraint firstAttribute="height" constant="64" id="C85-PE-t13"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album Name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JBu-bZ-fxa">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="JBu-bZ-fxa" firstAttribute="centerY" secondItem="LPX-ow-9jx" secondAttribute="centerY" id="0wM-Ot-q5g"/>
+                                        <constraint firstItem="LPX-ow-9jx" firstAttribute="leading" secondItem="aXj-w1-4kL" secondAttribute="leadingMargin" constant="8" id="9sa-ut-OFg"/>
+                                        <constraint firstItem="LPX-ow-9jx" firstAttribute="centerY" secondItem="aXj-w1-4kL" secondAttribute="centerY" id="DXW-Ga-WEq"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="JBu-bZ-fxa" secondAttribute="trailing" id="aiz-VX-cAA"/>
+                                        <constraint firstItem="JBu-bZ-fxa" firstAttribute="leading" secondItem="LPX-ow-9jx" secondAttribute="trailing" constant="10" id="vW7-aM-L84"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="albumImageView" destination="LPX-ow-9jx" id="MUJ-Kf-40y"/>
+                                    <outlet property="albumNameLabel" destination="JBu-bZ-fxa" id="teA-DI-c8n"/>
+                                    <segue destination="mTW-aC-Qy2" kind="show" identifier="SegueToAlbumDetails" id="jK5-0W-gKe"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="qK1-wF-cj4" id="oA7-RS-Qfa"/>
+                            <outlet property="delegate" destination="qK1-wF-cj4" id="Jjs-96-v14"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="8Wh-dj-hdC"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vga-Yd-CPN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1332" y="-178.56071964017991"/>
+        </scene>
+        <!--Album View Controller-->
+        <scene sceneID="2TT-6D-VkS">
+            <objects>
+                <viewController id="mTW-aC-Qy2" customClass="AlbumViewController" customModule="SpotifySearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="l7S-Rz-1TE"/>
+                        <viewControllerLayoutGuide type="bottom" id="PGR-1n-3di"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8aL-Nc-Mzc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hKN-on-KpM">
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hKN-on-KpM" secondAttribute="height" multiplier="57:55" id="ECt-k4-XYl"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hKN-on-KpM" firstAttribute="leading" secondItem="8aL-Nc-Mzc" secondAttribute="leadingMargin" id="4y6-wD-F6r"/>
+                            <constraint firstItem="hKN-on-KpM" firstAttribute="centerX" secondItem="8aL-Nc-Mzc" secondAttribute="centerX" id="DwX-xQ-iNY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hKN-on-KpM" secondAttribute="trailing" id="WnV-yu-ICE"/>
+                            <constraint firstItem="hKN-on-KpM" firstAttribute="top" secondItem="l7S-Rz-1TE" secondAttribute="bottom" constant="10" id="jyN-Am-nLo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="albumImageView" destination="hKN-on-KpM" id="Idf-0s-Zh4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gs4-Vf-lPh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2180" y="-179.46026986506749"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="LC1-bG-vhT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ueS-XA-QpO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="q1A-B7-11S">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qK1-wF-cj4" kind="relationship" relationship="rootViewController" id="naf-WT-9ce"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7AF-zP-sWz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="392.80000000000001" y="-178.56071964017991"/>
+        </scene>
+    </scenes>
+</document>

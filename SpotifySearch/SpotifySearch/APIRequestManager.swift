@@ -11,19 +11,17 @@ import Foundation
 class APIRequestManager {
     static let manager: APIRequestManager = APIRequestManager()
     init() {}
-    
-    let searchTerm = "blue"
-    
-    
-    func getSongsUsingAPI(completion:@escaping ((Data?)->Void)) {
-       
-        let APIString = "https://api.spotify.com/v1/search?q=blue&type=album&limit=50"
-//        let APIString = "https://api.spotify.com/v1/search?q=\(searchTerm)&type=album&limit=50"
-//        let search = searchWithWhiteSpace(searchTerm: APIString)
         
-        let APIURL = URL(string: APIString)!
+    
+    func getSongsUsingAPI(artist: String = "Kanye", completion:@escaping ((Data?)->Void)) {
+       
+//        let APIString = "https://api.spotify.com/v1/search?q=blue&type=album&limit=50"
+        let APIString = "https://api.spotify.com/v1/search?q=\(artist)&type=album&limit=50"
+        let search = searchWithWhiteSpace(searchTerm: APIString)
+        
+        let APIURL = URL(string: search)
         let session = URLSession(configuration: URLSessionConfiguration.default)
-        session.dataTask(with: APIURL) { (data: Data?, response: URLResponse?, error: Error?) in
+        session.dataTask(with: APIURL!) { (data: Data?, response: URLResponse?, error: Error?) in
             if error != nil {
                 print("Error encountered!: \(error!)")
             }
@@ -35,10 +33,10 @@ class APIRequestManager {
     }
     
     func searchWithWhiteSpace(searchTerm: String) -> String {
-        var newSearchterm = ""
+        var newSearchterm = searchTerm
         
         if searchTerm.contains(" ") {
-            newSearchterm = searchTerm.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
+            newSearchterm = searchTerm.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil)
         }
         
         return newSearchterm

@@ -354,6 +354,7 @@
 				2D6660781DC39D3C0006ECB6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

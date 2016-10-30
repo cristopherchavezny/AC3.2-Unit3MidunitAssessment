@@ -14,7 +14,7 @@ internal enum AlbumModelParseError: Error {
 
 internal struct Album {
     internal let name: String
-    internal let smallImageURL: String
+    internal let smallImageURL: String?
     internal let largeImageURL: String
     
     static func albums(from data: Data) -> [Album]? {
@@ -33,18 +33,23 @@ internal struct Album {
                 guard let albumName = albumObject["name"] as? String
                     else {throw AlbumModelParseError.name}
                 
-                guard let albumImages = albumObject["images"] as? [Any],
-                    let albumSmallImageDict = albumImages[2] as? [String : Any],
-                    let albumSmallImageURL = albumSmallImageDict["url"] as? String
-                    else {throw AlbumModelParseError.smallImageURL}
+            guard let albumImages = albumObject["images"] as? [Any]
+                else {throw AlbumModelParseError.smallImageURL}
+              
+//                guard let albumImages = albumObject["images"] as? [[String: Any]]
+//            let albumSmallImageURL = albumImages.count == 0 ? "" : albumImages[2]["url"] as! String
+//            let albumLargeImageURL = albumImages.count == 0 ? "" : albumImages[0]["url"] as! String
+//
+          
+                guard albumImages.count > 0 else {return}
+                let albumSmallImageDict = albumImages[2] as? [String : Any] ?? ["" : ""]
+                let albumSmallImageURL = albumSmallImageDict["url"] as? String ?? ""
                 
-                guard let albumImagesLarge = albumObject["images"] as? [Any],
-                let albumLargeImageDict = albumImagesLarge[0] as? [String : Any],
-                let albumLargeImageURL = albumLargeImageDict["url"] as? String
-                    else {throw AlbumModelParseError.largeImageURL}
+                let albumLargeImageDict = albumImages[0] as? [String : Any] ?? ["" : ""]
+                let albumLargeImageURL = albumLargeImageDict["url"] as? String ?? ""
                 
                 let album = Album(name: albumName, smallImageURL: albumSmallImageURL, largeImageURL: albumLargeImageURL)
-                
+
                 albumInfo.append(album)
             })
             return albumInfo

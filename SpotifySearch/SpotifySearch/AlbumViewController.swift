@@ -22,8 +22,9 @@ class AlbumViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        print(albumSelected.largeImageURL)
     }
+    
+
     
     
     /*

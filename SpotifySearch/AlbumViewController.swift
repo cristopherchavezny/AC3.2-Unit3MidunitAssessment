@@ -27,7 +27,7 @@ class AlbumViewController: UIViewController {
         guard let validAlbum = album else {
             return
         }
-        
+        if validAlbum.images.count > 0 {
         session.downloadTask(with: validAlbum.images[0].url) { (location, response, error) -> Void in
             if error != nil {
                 print("Error encountered!: \(error!)")
@@ -41,5 +41,5 @@ class AlbumViewController: UIViewController {
             }
             }.resume()
     }
-
+    }
 }

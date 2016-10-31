@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D01AC831DC645BE00BD087F /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01AC821DC645BE00BD087F /* SettingsManager.swift */; };
+		2D01AC851DC6516200BD087F /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01AC841DC6516200BD087F /* SettingsTableViewController.swift */; };
+		2D01AC871DC6569B00BD087F /* SliderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01AC861DC6569B00BD087F /* SliderTableViewCell.swift */; };
 		2D6660681DC39D3C0006ECB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6660671DC39D3C0006ECB6 /* AppDelegate.swift */; };
 		2D66606D1DC39D3C0006ECB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D66606B1DC39D3C0006ECB6 /* Main.storyboard */; };
 		2D66606F1DC39D3C0006ECB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D66606E1DC39D3C0006ECB6 /* Assets.xcassets */; };
@@ -20,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D01AC821DC645BE00BD087F /* SettingsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
+		2D01AC841DC6516200BD087F /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		2D01AC861DC6569B00BD087F /* SliderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderTableViewCell.swift; sourceTree = "<group>"; };
 		2D6660641DC39D3C0006ECB6 /* SpotifySearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotifySearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D6660671DC39D3C0006ECB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D66606C1DC39D3C0006ECB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -45,6 +51,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D01AC881DC6569F00BD087F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2D01AC861DC6569B00BD087F /* SliderTableViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		2D66605B1DC39D3C0006ECB6 = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				2D66606B1DC39D3C0006ECB6 /* Main.storyboard */,
+				2D01AC881DC6569F00BD087F /* Views */,
 				2D6660821DC3AAE70006ECB6 /* View Controllers */,
 				2D66607E1DC3A0470006ECB6 /* Model */,
 				2D66607B1DC3A0120006ECB6 /* Manager */,
@@ -78,6 +93,7 @@
 			children = (
 				2D6660851DC3AD4D0006ECB6 /* Extensions.swift */,
 				2D6660791DC39DA90006ECB6 /* APIRequestManager.swift */,
+				2D01AC821DC645BE00BD087F /* SettingsManager.swift */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -107,6 +123,7 @@
 				2D6660871DC3AE980006ECB6 /* AlbumViewController.swift */,
 				2D6660801DC3AADA0006ECB6 /* AlbumsTableViewController.swift */,
 				2D6660831DC3AB1D0006ECB6 /* AlbumTableViewCell.swift */,
+				2D01AC841DC6516200BD087F /* SettingsTableViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -188,9 +205,12 @@
 				2D6660861DC3AD4D0006ECB6 /* Extensions.swift in Sources */,
 				2D66607A1DC39DA90006ECB6 /* APIRequestManager.swift in Sources */,
 				2D6660811DC3AADA0006ECB6 /* AlbumsTableViewController.swift in Sources */,
+				2D01AC871DC6569B00BD087F /* SliderTableViewCell.swift in Sources */,
+				2D01AC831DC645BE00BD087F /* SettingsManager.swift in Sources */,
 				2D6660681DC39D3C0006ECB6 /* AppDelegate.swift in Sources */,
 				2D66607D1DC3A0400006ECB6 /* Album.swift in Sources */,
 				2D6660881DC3AE980006ECB6 /* AlbumViewController.swift in Sources */,
+				2D01AC851DC6516200BD087F /* SettingsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,12 +13,12 @@ class APIRequestManager {
     init() {}
         
     
-    func getSongsUsingAPI(artist: String = "Kanye", completion:@escaping ((Data?)->Void)) {
+    func getSongsUsingAPI(artist: String = "Kanye", type: String = "album", market: String = "US", completion:@escaping ((Data?)->Void)) {
        
-//        let APIString = "https://api.spotify.com/v1/search?q=blue&type=album&limit=50"
-        let APIString = "https://api.spotify.com/v1/search?q=\(artist)&type=album&limit=50"
+//      let APIString = "https://api.spotify.com/v1/search?q=blue&type=album&limit=50"
+        let APIString = "https://api.spotify.com/v1/search?q=\(artist)&type=\(type)&market=\(market)&limit=\(SettingsManager.manager.limit)"
         let search = searchWithWhiteSpace(searchTerm: APIString)
-        
+        let search2 = artist.addingPercentEncoding(withAllowedCharacters: <#T##CharacterSet#>)
         let APIURL = URL(string: search)
         let session = URLSession(configuration: URLSessionConfiguration.default)
         session.dataTask(with: APIURL!) { (data: Data?, response: URLResponse?, error: Error?) in
@@ -36,7 +36,7 @@ class APIRequestManager {
         var newSearchterm = searchTerm
         
         if searchTerm.contains(" ") {
-            newSearchterm = searchTerm.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil)
+            newSearchterm = searchTerm.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
         }
         
         return newSearchterm

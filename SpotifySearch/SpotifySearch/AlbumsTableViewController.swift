@@ -21,7 +21,11 @@ class AlbumsTableViewController: UITableViewController, UISearchBarDelegate {
         navigationController?.navigationBar.barTintColor = UIColor(red: 132.0 / 255.0, green: 189.0 / 255.0, blue: 0.0 / 255.0, alpha: 1.0)
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
-            }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        <#code#>
+    }
     
     func loadData() {
         APIRequestManager.manager.getSongsUsingAPI() { (data: Data?) in
@@ -33,7 +37,7 @@ class AlbumsTableViewController: UITableViewController, UISearchBarDelegate {
                 }
             }
         }
-
+        
     }
     
     func createSearchBar() {
@@ -43,7 +47,7 @@ class AlbumsTableViewController: UITableViewController, UISearchBarDelegate {
         searchbar.delegate = self
         self.navigationItem.titleView = searchbar
     }
-
+    
     
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -58,7 +62,7 @@ class AlbumsTableViewController: UITableViewController, UISearchBarDelegate {
             }
         }
         
-
+        
     }
     // MARK: - Table view data source
     

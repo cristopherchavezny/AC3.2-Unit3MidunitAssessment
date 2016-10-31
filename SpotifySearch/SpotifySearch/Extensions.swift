@@ -25,6 +25,7 @@ extension UIImageView {
             }
             guard let data = imageData, let downloadedImage = UIImage(data: data) else { return }
             cacheImage.setObject(downloadedImage, forKey: urlString as NSString)
+           
             DispatchQueue.main.async {
                 self.image = UIImage(data: data)
             }
